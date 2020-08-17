@@ -56,7 +56,7 @@ plugins:
   - jekyll-include-cache
 
 author:
-  name   : "Mazdak Khoshnood"
+  name   : "first last"
   avatar : "/assets/images/bio-photo.jpg"
   bio    : "I am a recent University of Illinois at Chicago graduate with a BS in Industrial Engineering with a passion for data science and machine learning."
   links:
