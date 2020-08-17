@@ -56,7 +56,7 @@ plugins:
   - jekyll-include-cache
 
 author:
-  name   : "first last"
+  name   : "Mazdak Khoshnood"
   avatar : "/assets/images/bio-photo.jpg"
   bio    : "I am a recent University of Illinois at Chicago graduate with a BS in Industrial Engineering with a passion for data science and machine learning."
   links:
@@ -73,15 +73,12 @@ author:
 
 footer:
   links:
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/mazdak186"
-    - label: "Instagram"
+    - label: "Linkedin"
       icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/"
+      url: "https://www.linkedin.com/in/mazdak-khoshnood-52814793/"
 
 defaults:
   # _posts
