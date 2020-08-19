@@ -6,8 +6,8 @@ categories:
 tags:
   - Machine Learning
   - Python
-header:
-  teaser: /assets/images/inference.png
+header: /assets/images/inference.jpg
+  teaser: /assets/images/inference.jpg
   
 ---
 
