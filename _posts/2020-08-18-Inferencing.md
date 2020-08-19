@@ -12,9 +12,9 @@ header:
   
 ---
 
+Now that we've successfully trained the object detection model we can finally put it to use! We will create a script that will perform inferencing using a stereoscopic camera to detect the three dimensional coordinates of nuts and bolts in realtime. We will be using an Intel Realsense D435 Depth Camera and its corresponding SDK for this project. 
+Before we do anything we must import the necessary libraries.
 ```python
-## P53 - Object detection with corresponding spacial coordinates
-
 import os
 import cv2
 import numpy as np
@@ -22,10 +22,10 @@ import tensorflow as tf
 import pyrealsense2 as rs
 from utils import visualization_utils as vis_util
 from utils import label_map_util
+```
 
-# Name the window
-WIN_NAME = 'Fermi Detection'
-
+Next we need to intitialize a few things. First we initialize the two sensors on the camera. One is the infrared depth sensor and the other is the color sensor. 
+```
 # Video Dimensions
 WIDTH = 848
 HEIGHT = 480
@@ -38,7 +38,10 @@ config.enable_stream(rs.stream.color, WIDTH, HEIGHT, rs.format.bgr8,30)
 profile = pipeline.start(config)
 depth_sensor = profile.get_device().first_depth_sensor()
 depth_scale = depth_sensor.get_depth_scale()
+```
 
+Then we have to load the label map and trained model into memory in order to perform inferencing in realtime.
+```
 # current directory
 CWD_PATH = os.getcwd()
 
@@ -67,7 +70,10 @@ with detection_graph.as_default():
         tf.import_graph_def(od_graph_def, name='')
 
     TFSess = tf.compat.v1.Session(graph=detection_graph)
+```
 
+Now we must define the variables that will act as the input and outputs of our model. The only input we will have is the array of pixels we recieve from each frame of the video. The three outputs we will get from our model are the top-left X,Y pixel coordinates of the bounding boxes, the class of object it detects, and the percent confidence in the object detection.
+```
 # Define input and output tensors:
 # input tensor is the image
 image_tensor = detection_graph.get_tensor_by_name('image_tensor:0')
@@ -79,16 +85,25 @@ detection_classes = detection_graph.get_tensor_by_name('detection_classes:0')
 
 # number of objects detected
 num_detections = detection_graph.get_tensor_by_name('num_detections:0')
+```
 
-
+Finally we prepare the window that will show the video.
+```
 # Initialize framerate calculation
 frame_rate_calc = 1
 freq = cv2.getTickFrequency()
 font = cv2.FONT_HERSHEY_SIMPLEX
 
+# Name the window
+WIN_NAME = 'Fermi Detection'
+
 # create window
 cv2.namedWindow(WIN_NAME, cv2.WINDOW_AUTOSIZE)
 cv2.moveWindow(WIN_NAME, 120, 500)
+```
+
+Now that we've finished intitializing everything, we can work on taking the data from the live video feed and feeding it through our model in order to detect the desired objects in frame.
+```
 while(True):
     t1 = cv2.getTickCount()
 
