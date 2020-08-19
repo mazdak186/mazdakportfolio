@@ -24,8 +24,10 @@ from utils import visualization_utils as vis_util
 from utils import label_map_util
 ```
 
+<br />
 Next we need to intitialize a few things. First we initialize the two sensors on the camera. One is the infrared depth sensor and the other is the color sensor. 
-```
+
+```python
 # Video Dimensions
 WIDTH = 848
 HEIGHT = 480
@@ -40,8 +42,10 @@ depth_sensor = profile.get_device().first_depth_sensor()
 depth_scale = depth_sensor.get_depth_scale()
 ```
 
+<br />
 Then we have to load the label map and trained model into memory in order to perform inferencing in realtime.
-```
+
+```python
 # current directory
 CWD_PATH = os.getcwd()
 
@@ -72,8 +76,10 @@ with detection_graph.as_default():
     TFSess = tf.compat.v1.Session(graph=detection_graph)
 ```
 
+<br />
 Now we must define the variables that will act as the input and outputs of our model. The only input we will have is the array of pixels we recieve from each frame of the video. The three outputs we will get from our model are the top-left X,Y pixel coordinates of the bounding boxes, the class of object it detects, and the percent confidence in the object detection.
-```
+
+```python
 # Define input and output tensors:
 # input tensor is the image
 image_tensor = detection_graph.get_tensor_by_name('image_tensor:0')
@@ -87,8 +93,10 @@ detection_classes = detection_graph.get_tensor_by_name('detection_classes:0')
 num_detections = detection_graph.get_tensor_by_name('num_detections:0')
 ```
 
+<br />
 Finally we prepare the window that will show the video.
-```
+
+```python
 # Initialize framerate calculation
 frame_rate_calc = 1
 freq = cv2.getTickFrequency()
@@ -102,8 +110,10 @@ cv2.namedWindow(WIN_NAME, cv2.WINDOW_AUTOSIZE)
 cv2.moveWindow(WIN_NAME, 120, 500)
 ```
 
+<br />
 Now that we've finished intitializing everything, we can work on taking the data from the live video feed and feeding it through our model in order to detect the desired objects in frame.
-```
+
+```python
 while(True):
     t1 = cv2.getTickCount()
 
@@ -127,9 +137,6 @@ while(True):
     #values = get_texcolor(color_frame, txt[0])
     #print(values)
 
- 
-    
-
     #  We get a frame from the video, and we expand its dimensions to the tensor shape
     #  [1, None, None, 3]
     frame_expanded = np.expand_dims(color_image, axis=0)
@@ -138,11 +145,7 @@ while(True):
     (boxes, scores, classes, num) = TFSess.run(
         [detection_boxes, detection_scores, detection_classes, num_detections],
         feed_dict={image_tensor: frame_expanded})
-
-    #DEBUG
-    #print(boxes)
-    #print(np.squeeze(boxes))
-
+        <br />
     # Draw the bounding box, class, confidence
     vis_util.visualize_boxes_and_labels_on_image_array(
         color_image,
@@ -190,6 +193,4 @@ while(True):
 
 pipeline.stop()
 cv2.destroyAllWindows()
-
-
 ```
