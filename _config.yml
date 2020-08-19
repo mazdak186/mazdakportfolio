@@ -59,6 +59,7 @@ author:
   name   : "Mazdak Khoshnood"
   avatar : "/assets/images/bio-photo.jpg"
   bio    : "I am a recent University of Illinois at Chicago graduate with a BS in Industrial Engineering with a passion for data science and machine learning."
+  location: Chicago, IL
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
