@@ -111,7 +111,7 @@ cv2.moveWindow(WIN_NAME, 120, 500)
 ```
 
 <br />
-Now that we've finished intitializing everything, we can work on taking the data from the live video feed and feeding it through our model in order to detect the desired objects in frame.
+Now that we've finished initializing everything, we can work on taking the data from the live video feed and feeding it through our model in order to detect the desired objects in frame.
 
 ```python
 while(True):
