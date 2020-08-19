@@ -7,7 +7,7 @@ tags:
   - Machine Learning
   - Python
 header:
-  image: /assets/images/inference.jpg
+  image:
   teaser: /assets/images/inference.jpg
   
 ---
