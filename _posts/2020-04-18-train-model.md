@@ -38,7 +38,6 @@ Our first step is to create our virtual environment with all the modules and dep
 
 Once the packages have been downloaded we must create a folder in *'tensorflow/models/research/object_detection'* called *'training'*. Place the test.record and train.record datasets in this folder. We also need to create a file called labelmap.pbtxt and fill it with the following.
 
-<br />
 
 ```
 item {
@@ -52,14 +51,13 @@ item {
 }
 ```
 
-<br />
 
 Then download the SSD Inception V2 model files found [here](http://download.tensorflow.org/models/object_detection/ssd_inception_v2_coco_2018_01_28.tar.gz). Place the pipeline.config and all the model.ckpt files in the training folder. These contain the pretrained model with weights based off of the Coco dataset which has 90 different objects it classifies. For this project we need to edit the pipeline.config file so num_classes is equal to 2. We also have to edit fine_tune_checkpoint, label_map_path, and input_path (lines 152-172) to point to the paths of the checkpoint files (CLARIFY THE CKPT FILE PATH THING), labelmap file and .record files respectively.
 <br />
 Now that we have the pipeline.config, labelmap.pbtxt, train.record, test.record and model.ckpt files in the training folder we can begin training the model. Open up the terminal and change the directory to *~/research* and input *export PYTHONPATH =$PYTHONPATH:pwd:pwd/slim*. You must do this everytime you open up a new terminal. To avoid this put that line at the end of your .bashrc file and replace *pwd* with the full path to the research folder in tensorflow.
 Now change the directory to *~/object_detection* and start the training script by running the following in the terminal.
 
-```
+```bash
 python3 model_main.py
 --logtostderr
 --model_dir=Training/
