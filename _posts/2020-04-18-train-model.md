@@ -15,7 +15,7 @@ Once a dataset of images has been generated, we can begin training a model. Inst
 |*The SSD architecture with Inception V2 feature extractor blocks*|
 <br />
 Our first step is to create our virtual environment with all the modules and dependecies needed to train the model. 
-
+<br />
 > - Python 3.6.8
 > - Tensorflow 1.14
 > - OpenCV 4.1.1
@@ -31,8 +31,7 @@ Our first step is to create our virtual environment with all the modules and dep
 > - Protobuf 3.10
 > - Pycocotools 2.0
 > - Wheel 0.33.6
-<br/ >
-
+<br />
 Once the packages have been downloaded we must create a folder in *tensorflow/models/research/object_detection* called *training*. Place the .record dataset in this folder. We also need to create a file called labelmap.pbtxt and fill it with the following.
 <br />
 ```
