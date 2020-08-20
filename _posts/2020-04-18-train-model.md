@@ -16,6 +16,7 @@ Once a dataset of images has been generated, we can begin training a model. Inst
 <br />
 Our first step is to create our virtual environment with all the modules and dependecies needed to train the model. 
 <br />
+
 > - Python 3.6.8
 > - Tensorflow 1.14
 > - OpenCV 4.1.1
