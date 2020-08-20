@@ -76,7 +76,7 @@ footer:
       icon: "fab fa-fw fa-github"
       url: "https://github.com/mazdak186"
     - label: "Linkedin"
-      icon: "fab fa-fw fa-instagram"
+      icon: "fab fa-fw fa-linkedin-square"
       url: "https://www.linkedin.com/in/mazdak-khoshnood-52814793/"
 
 defaults:
