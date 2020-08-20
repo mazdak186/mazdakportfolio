@@ -15,7 +15,9 @@ toc_icon: 'bars'
 classes: wide
 
 ---
-
+# Introduction
+# Prepping the Loop
+## Import Packages
 Now that we've successfully trained the object detection model we can finally put it to use! We will create a script that will perform inferencing using a stereoscopic camera to detect the three dimensional coordinates of nuts and bolts in realtime. We will be using an Intel Realsense D435 Depth Camera and its corresponding SDK for this project. 
 Before we do anything we must import the necessary libraries.
 ```python
@@ -29,6 +31,7 @@ from utils import label_map_util
 ```
 
 <br />
+## Initialization
 Next we need to intitialize a few things. First we initialize the two sensors on the camera. One is the infrared depth sensor and the other is the color sensor. 
 
 ```python
@@ -47,6 +50,7 @@ depth_scale = depth_sensor.get_depth_scale()
 ```
 
 <br />
+## Loading Trained Model
 Then we have to load the label map and trained model into memory in order to perform inferencing in realtime.
 
 ```python
@@ -81,6 +85,7 @@ with detection_graph.as_default():
 ```
 
 <br />
+## Defining Inputs and Outputs
 Now we must define the variables that will act as the input and outputs of our model. The only input we will have is the array of pixels we recieve from each frame of the video. The three outputs we will get from our model are the top-left X,Y pixel coordinates of the bounding boxes, the class of object it detects, and the percent confidence in the object detection.
 
 ```python
@@ -98,6 +103,7 @@ num_detections = detection_graph.get_tensor_by_name('num_detections:0')
 ```
 
 <br />
+## Create the Window
 Finally we prepare the window that will show the video.
 
 ```python
@@ -115,6 +121,7 @@ cv2.moveWindow(WIN_NAME, 120, 500)
 ```
 
 <br />
+# Object Detection
 Now that we've finished initializing everything, we can work on taking the data from the live video feed and feeding it through our model in order to detect the desired objects in frame.
 
 ```python
