@@ -9,7 +9,8 @@ tags:
 header:
   image:
   teaser: /assets/images/inference.jpg
-  
+classes: wide
+
 ---
 
 Now that we've successfully trained the object detection model we can finally put it to use! We will create a script that will perform inferencing using a stereoscopic camera to detect the three dimensional coordinates of nuts and bolts in realtime. We will be using an Intel Realsense D435 Depth Camera and its corresponding SDK for this project. 
