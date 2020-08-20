@@ -9,8 +9,10 @@ tags:
 ---
 
 Once a dataset of images has been generated, we can begin training a model. Instead of creating a model's architecture from scratch we can use a premade one called, SSD Inception V2 based off of the Tensorflow Object Detection API. Single Shot Detection (SSD) is a type of architecture that focuses on speed of inferencing without sacrificing accuracy. We will perform transfer learning which means we will overwrite the weights in the output layer of the pre-trained model based on the classes we define from our dataset.
-![image](/assets/images/ssdlayers.jpg)
-*The SSD architecture with Inception V2 feature extractor blocks*
+<br />
+|![image](/assets/images/ssdlayers.jpg)|
+|:--:|
+|*The SSD architecture with Inception V2 feature extractor blocks*|
 <br />
 Our first step is to create our virtual environment with all the modules and dependecies needed to train the model. 
 
