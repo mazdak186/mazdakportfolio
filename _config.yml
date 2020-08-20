@@ -63,7 +63,7 @@ author:
   links:
 
     - label: "Linkedin"
-      icon: "fas fa-fw fa-linkedin-square"
+      icon: "fas fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/mazdak-khoshnood-52814793/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
@@ -76,7 +76,7 @@ footer:
       icon: "fab fa-fw fa-github"
       url: "https://github.com/mazdak186"
     - label: "Linkedin"
-      icon: "fab fa-fw fa-linkedin-square"
+      icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/mazdak-khoshnood-52814793/"
 
 defaults:
