@@ -13,6 +13,7 @@ classes: wide
 
 ---
 
+# Introduction
 Once a dataset of images has been generated, we can begin training a model. Instead of creating a model's architecture from scratch we can use a premade one called, SSD Inception V2 based off of the Tensorflow Object Detection API. Single Shot Detection (SSD) is a type of architecture that focuses on speed of inferencing without sacrificing accuracy. We will perform transfer learning which means we will overwrite the weights in the output layer of the pre-trained model based on the classes we define from our dataset.
 
 <br />
@@ -23,6 +24,7 @@ Once a dataset of images has been generated, we can begin training a model. Inst
 
 <br />
 
+# Package Requirements
 Our first step is to create our virtual environment with all the modules and dependecies needed to train the model. 
 
 > - Python 3.6.8
@@ -41,6 +43,7 @@ Our first step is to create our virtual environment with all the modules and dep
 > - Pycocotools 2.0
 > - Wheel 0.33.6
 
+# Prepping the Training folder
 Once the packages have been downloaded we must create a folder in *'tensorflow/models/research/object_detection'* called *'training'*. Place the test.record and train.record datasets in this folder. We also need to create a file called labelmap.pbtxt and fill it with the following.
 
 
@@ -60,6 +63,7 @@ Then download the SSD Inception V2 model files found [here](http://download.tens
 
 <br />
 
+# Training the model
 Now that we have the pipeline.config, labelmap.pbtxt, train.record, test.record and model.ckpt files in the training folder we can begin training the model. Open up the terminal and change the directory to *~/research* and run the following.
 ```bash
 export PYTHONPATH =$PYTHONPATH:pwd:pwd/slim
