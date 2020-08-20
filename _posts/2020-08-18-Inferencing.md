@@ -9,6 +9,9 @@ tags:
 header:
   image:
   teaser: /assets/images/inference.jpg
+toc: true
+toc_label:
+toc_icon: 'bars'
 classes: wide
 
 ---
