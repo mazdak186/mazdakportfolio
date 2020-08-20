@@ -9,6 +9,7 @@ tags:
 toc: true
 toc_label:
 toc_icon: 'bars'
+classes: wide
 
 ---
 
