@@ -2,7 +2,7 @@
 title: "Training a Convolutional Neural Network for Object Detection"
 date: 2020-04-18T15:34:30-04:00
 categories:
-  - project
+  - Project
 tags:
   - Machine Learning
   - Python
