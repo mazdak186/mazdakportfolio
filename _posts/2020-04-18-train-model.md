@@ -59,7 +59,7 @@ Now that we have the pipeline.config, labelmap.pbtxt, train.record, test.record 
 ```bash
 export PYTHONPATH =$PYTHONPATH:pwd:pwd/slim
 ```
-You must do this everytime you open up a new terminal. To avoid this put that line at the end of your .bashrc file and replace *pwd* with the full path to the research folder in tensorflow.
+You must do this everytime you open up a new terminal. To avoid this put that line at the end of your .bashrc file and replace *'pwd'* with the full path to the research folder in tensorflow.
 
 <br />
 
