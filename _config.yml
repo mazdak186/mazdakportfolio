@@ -61,9 +61,7 @@ author:
   bio    : "I am a recent University of Illinois at Chicago graduate with a BS in Industrial Engineering with a passion for data science and machine learning."
   location: Chicago, IL
   links:
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      url: "www.mazdakportfolio.com"
+
     - label: "Linkedin"
       icon: "fas fa-fw fa-link"
       url: "https://www.linkedin.com/in/mazdak-khoshnood-52814793/"
