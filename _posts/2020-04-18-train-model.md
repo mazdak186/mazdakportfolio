@@ -57,7 +57,7 @@ Then download the SSD Inception V2 model files found [here](http://download.tens
 
 Now that we have the pipeline.config, labelmap.pbtxt, train.record, test.record and model.ckpt files in the training folder we can begin training the model. Open up the terminal and change the directory to *~/research* and run the following.
 ```bash
-*export PYTHONPATH =$PYTHONPATH:pwd:pwd/slim*.
+export PYTHONPATH =$PYTHONPATH:pwd:pwd/slim
 ```
 You must do this everytime you open up a new terminal. To avoid this put that line at the end of your .bashrc file and replace *pwd* with the full path to the research folder in tensorflow.
 
