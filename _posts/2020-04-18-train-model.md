@@ -31,5 +31,21 @@ Our first step is to create our virtual environment with all the modules and dep
 > - Protobuf 3.10
 > - Pycocotools 2.0
 > - Wheel 0.33.6
+<br/ >
 
-Once the 
+Once the packages have been downloaded we must create a folder in *tensorflow/models/research/object_detection* called *training*. Place the .record dataset in this folder. We also need to create a file called labelmap.pbtxt and fill it with the following.
+<br/ >
+```
+item {
+  id: 1
+  name: 'nut'
+}
+
+item {
+  id: 2
+  name: 'bolt'
+}
+```
+<br/ >
+
+Then download the SSD Inception V2 model files found [here](http://download.tensorflow.org/models/object_detection/ssd_inception_v2_coco_2018_01_28.tar.gz) and place it in the training folder. This contains the pretrained model with weights based off of the Coco dataset which has 90 different objects it classifies. For this project we need to edit the pipeline.config file so num_classes is equal to 2. We also have to edit fine_tune_checkpoint, label_map_path, and input_path (lines 152-172) to point to the paths of the checkpoint files, labelmap file and .record file respectively.
