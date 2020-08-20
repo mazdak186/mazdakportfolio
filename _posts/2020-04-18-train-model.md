@@ -31,9 +31,13 @@ Our first step is to create our virtual environment with all the modules and dep
 > - Protobuf 3.10
 > - Pycocotools 2.0
 > - Wheel 0.33.6
+
 <br />
+
 Once the packages have been downloaded we must create a folder in *tensorflow/models/research/object_detection* called *training*. Place the .record dataset in this folder. We also need to create a file called labelmap.pbtxt and fill it with the following.
+
 <br />
+
 ```
 item {
   id: 1
