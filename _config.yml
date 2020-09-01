@@ -22,6 +22,7 @@ github_username: mazdak186
 minimal_mistakes_skin: "contrast"
 search: true
 logo: "/assets/images/mk.png"
+breadcrumbs: true
 
 # Build settings
 markdown: kramdown
