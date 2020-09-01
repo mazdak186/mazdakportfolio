@@ -75,7 +75,7 @@ author:
 footer:
   links:
     - label: "GitHub"
-      icon: "fab fa-fw fa-github"
+      icon: "fab fa-fw fa-github-square"
       url: "https://github.com/mazdak186"
     - label: "Linkedin"
       icon: "fab fa-fw fa-linkedin"
