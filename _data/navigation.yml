@@ -7,3 +7,12 @@ main:
     url: /tags/
   - title: "About"
     url: /about/
+capstone:
+  - title: "Overview"
+    url: http://www.mazdakportfolio.com/capstone%20project/Capstone/#overview
+  - title: "Dataset Creation"
+    url: http://www.mazdakportfolio.com/capstone%20project/Capstone/#dataset-creation
+  - title: "Training"
+    url: http://www.mazdakportfolio.com/capstone%20project/Capstone/#training
+  - title: "Deploying Trained Model"
+    url: http://www.mazdakportfolio.com/capstone%20project/Capstone/#deploying-the-trained-model
