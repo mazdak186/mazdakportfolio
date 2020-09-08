@@ -14,5 +14,5 @@ capstone:
     url: http://www.mazdakportfolio.com/capstone%20project/Capstone/#dataset-creation
   - title: "Training"
     url: http://www.mazdakportfolio.com/capstone%20project/Capstone/#training
-  - title: "Deploying Trained Model"
+  - title: "Deployment"
     url: http://www.mazdakportfolio.com/capstone%20project/Capstone/#deploying-the-trained-model
