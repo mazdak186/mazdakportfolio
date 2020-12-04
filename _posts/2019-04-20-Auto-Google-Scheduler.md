@@ -13,10 +13,18 @@ classes: wide
 
 ---
 
-```python
+# Overview
+As a dog walker, my work schedule can vary quite a lot. I recieve an email of my schedule everyday from my boss, however I found it's a bit of a hassle to constantly pull up that email. In order to better keep track of all my clients' visits, I started to add events onto my Google Calendar widget I have on my phone's homepage. Although that helped a little, I still had to spend some time each day to create up to 15 events in my calendar. After some research I found that it's simple enough to use the Google API to automatically look at my inbox for that specific email, pick apart the text, and create the calendar events with the necessary information. 
 
-# Reads through my gmail to find if I have any walks the next day.
-# Adds each walk as an individual event in my google calendar
+<br />
+
+|![image](/assets/images/schedule_1)|
+|:--:|
+|*Example of a schedule on my phone's calendar*|
+
+<br />
+
+```python
 import datetime
 import pickle
 import os.path
