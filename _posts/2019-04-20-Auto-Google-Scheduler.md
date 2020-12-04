@@ -18,7 +18,7 @@ As a dog walker, my work schedule can vary quite a lot. I recieve an email of my
 
 <br />
 
-|![image](/assets/images/schedule_1)|
+|![image](/assets/images/schedule_1.png)|
 |:--:|
 |*Example of a schedule on my phone's calendar*|
 
