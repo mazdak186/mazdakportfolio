@@ -37,7 +37,7 @@ from google.auth.transport.requests import Request
 
 ```
 
-Next we must handle the authentication flow. This is taken from Google's own (quickstart guide)[https://developers.google.com/gmail/api/quickstart/python].
+Next we must handle the authentication flow. This is taken from Google's own [quickstart guide](https://developers.google.com/gmail/api/quickstart/python).
 
 ```python
 # If modifying these scopes, delete the file token.pickle.
