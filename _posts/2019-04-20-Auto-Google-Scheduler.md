@@ -291,4 +291,5 @@ We then tally up the total pay from the *pays* array and create the total pay ev
         print(pay_event)
 exit(1)
 ```
+Now we can use something like Window's Task Scheduler to run this script every night at 9:30 to fully automate my work scheduling!
 With a bit of parsing know-how and just a little research into Google's APIs we can create a simple yet powerful script that saves us a lot of time, keeps us organized and on top of our daily workflow. 
