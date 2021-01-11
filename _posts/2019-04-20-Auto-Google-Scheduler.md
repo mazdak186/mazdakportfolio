@@ -6,7 +6,7 @@ categories:
 tags:
   - Google API
   - Python
-toc: true
+toc: false
 toc_label:
 toc_icon: 'bars'
 classes: wide
