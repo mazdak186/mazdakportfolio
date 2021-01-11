@@ -111,11 +111,12 @@ if not messages:
 else:
     for message in messages:
         messageheader = service.users().messages().get(userId="me", id=message['id'], format="full").execute()
-        headers = messageheader["payload"]["headers"]
-        # This subject is different from "Your dog walking schedule..."
+        headers = messageheader["payload"]["headers"] # Headers are an attribute of messages which we typically refer to as the subject of the email
         petsit = "Your Daily Walking and Pet Sitting email. Please do not reply to this automated email."
+```
+Notice that the "petsit" variable is a string that contains the exact subject line as the one found in the example email from the image above. These automated emails always have this specific subject line, so we can easily identify which messages in the inbox we need to look at.
+```python        
         subject = [i['value'] for i in headers if i["value"] == petsit]
-        #print(messageheader['snippet'])
         if subject:
             content = base64.urlsafe_b64decode(messageheader["payload"]["body"]["data"])
             content = str(content, 'utf-8')
@@ -131,7 +132,25 @@ else:
                 print("\nNo walks tomorrow!")
                 exit(1)       
 ```
+The "subject" variable is a boolean that returns true if the message header (also known as the email's subject) contains the exact string found in the "subject" variable. The "content" variable contains the body of the actual email. I had to convert the character encoding of the email to UTF-8 in order to actually read it in console and I replaced the break character with the space character to more easily read the message. We can use the "content" variable to differentiate between an email that has my schedule for the next day and an email that notifies me that I don't have work the next day. An example of such an email is shown below.
 
+<br />
+
+|![image](/assets/images/email_2.png)|
+|:--:|
+|*Example email when I have no work the next day|
+
+<br />
+
+To differentiate between the two types of emails, we have to find out if the body of the email has the phrase "upcoming services" or "no services". The find() function returns the index of the first instance of the string you provide. If no instance of that string is found, it returns -1. You may define a start and end index to search through when using the find() function. So I look for the phrases after the first instance of a comma and before the first instance of a period in the email. 
+
+For example, if I have work the next day, it looks for the phrase "upcoming services" in the string "Your Walker/Sitter Number is: MAZ Here are your upcoming services on January 11, 2019 for A FRIEND FOR FIDO LLC". When it does find it, we break out of the for loop.
+
+If I don't have work the next day, it looks for the phrase "no services" in the string "You have no services for A FRIEND FOR FIDO LLC on January 29, 2019"
+
+This loop only finds the most recent email sent to me about my schedule. So if the most recent email says I have no walks the next day, the script ends right there. Otherwise we continue to parse through the most recent email to see when my walks are schedule for the upcoming workday.
+
+Now we need to gather the date of the workday so we know what day to create the work event in our calendar.
 ```python
 # Get date
 idx = content.find("<b>") + 3
@@ -145,7 +164,11 @@ month = date[:month]
 month = datetime.datetime.strptime(month, '%B')
 month = int(month.month)
 d = datetime.date(year, month, day)
+```
 
+Next I cut out unnecessary info from the body of the email to more easily read the contents in the console.
+
+```python
 # Cut out unnecessary info
 idx = content.find("You are being sent this email because")
 content = content[:idx]
@@ -162,7 +185,9 @@ while note.find("Notes:") > -1:
         content = content.replace(note[:idx2], " ")
     notes.append("Friend for Fido: " + note[13:idx2])
     note = note[13:]
+```
 
+```python
 # Add walks and pay to arrays
 walks = []
 pays = []
