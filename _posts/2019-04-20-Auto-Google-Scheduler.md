@@ -24,6 +24,8 @@ As a dog walker, my work schedule can vary quite a lot. I recieve an email of my
 
 <br />
 
+First we must download the following packages.
+
 ```python
 import datetime
 import pickle
@@ -33,7 +35,11 @@ from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 
+```
 
+Next we must handle the authentication flow. This is taken from Google's own (quickstart guide)[https://developers.google.com/gmail/api/quickstart/python].
+
+```python
 # If modifying these scopes, delete the file token.pickle.
 SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']
 SCOPES2 = ['https://www.googleapis.com/auth/calendar']
