@@ -37,7 +37,7 @@ from google.auth.transport.requests import Request
 
 ```
 
-Next we must handle the authentication flow. This is taken from Google's own [quickstart guide](https://developers.google.com/gmail/api/quickstart/python).
+Next we must handle the authentication flow. This is taken from Google's own [quickstart guide](https://developers.google.com/gmail/api/quickstart/python). It's a good idea to enable the Gmail API for your Cloud Platform project at this point as well. Since we will also be using the Google Calendar API, you should also enable that for the same project as well. The two .json files you download from each API should be put into the working directory of this script.
 
 ```python
 # If modifying these scopes, delete the file token.pickle.
@@ -79,6 +79,10 @@ if not creds2 or not creds2.valid:
     with open('token2.pickle', 'wb') as token2:
         pickle.dump(creds2, token2)
 
+```
+Now that we have the credentials to access our account, we can start by retrieving the emails in our inbox.
+
+```python
 # Call the Google APIs
 service = build('gmail', 'v1', credentials=creds)
 service2 = build('calendar', 'v3', credentials=creds2)
@@ -87,6 +91,19 @@ service2 = build('calendar', 'v3', credentials=creds2)
 results = service.users().messages().list(userId='me', labelIds=['INBOX']).execute()
 messages = results.get('messages', 'me')
 
+```
+Just so we're familiar with the content of what we're looking for, here is an example email I may recieve.
+
+<br />
+
+|![image](/assets/images/email_1.png)|
+|:--:|
+|*Example email of my schedule*|
+
+<br />
+
+We can parse through our inbox to find the appropriate emails by using this for loop.
+```python
 # Cycle through emails. Find first email that contains walks
 if not messages:
     print("No messages found.")
@@ -112,8 +129,10 @@ else:
             if content.find("no services", idx, idx2) > -1:
                 print("\n" + content)
                 print("\nNo walks tomorrow!")
-                exit(1)
+                exit(1)       
+```
 
+```python
 # Get date
 idx = content.find("<b>") + 3
 idx2 = content.find("</b>")
