@@ -2019,6 +2019,7 @@ regr.fit(x_train,y_train)
 
 
 **OUTPUT:**
+
     LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None, normalize=False)
 
 
@@ -2117,5 +2118,5 @@ plt.scatter(y_test,y_pred2)
 
 |![image](/assets/images/output_28_1.png)|
 |:--:|
-|*Regression Model Scatterplot*|
+|*Forest Regression Model Scatterplot*|
 
