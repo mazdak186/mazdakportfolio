@@ -1,4 +1,17 @@
+---
+title: "Regression Machine Learning Project"
+date: 2020-04-15T15:34:30-04:00
+categories:
+  - School Project
+tags:
+  - Machine Learning
+  - Python
+toc: true
+toc_label:
+toc_icon: 'bars'
+classes: wide
 
+---
 
 ```python
 import numpy as np
