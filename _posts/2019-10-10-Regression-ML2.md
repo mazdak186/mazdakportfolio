@@ -54,6 +54,7 @@ pipeMainSpec.isna().sum()
 
 
 
+**Output**:
 
     pipe_assembly_id      0
     material_id         279
