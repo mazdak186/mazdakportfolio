@@ -54,7 +54,7 @@ pipeMainSpec.isna().sum()
 
 
 
-**Output**:
+**OUTPUT:**
 
     pipe_assembly_id      0
     material_id         279
@@ -83,7 +83,7 @@ pipeMainSpec[:5]
 
 
 
-
+**OUTPUT:**
 
 <table border="1" class="dataframe">
   <thead>
@@ -206,7 +206,7 @@ compGenNum
 
 
 
-
+**OUTPUT:**
 
 <table border="1" class="dataframe">
   <thead>
@@ -399,7 +399,6 @@ compGenNum
 
 
 
-
 ```python
 #merge the two major attribute dataframes
 attributes = compGenNum.merge(right = pipeMainSpec, left_index = True,right_index = True, on = "pipe_assembly_id")
@@ -408,7 +407,7 @@ attributes
 
 
 
-
+**OUTPUT:**
 
 <table border="1" class="dataframe">
   <thead>
@@ -717,7 +716,7 @@ istrainAttributes
 ```
 
 
-
+**OUTPUT:**
 
     0        False
     1         True
@@ -793,6 +792,7 @@ trainAttributes
 
 
 
+**OUTPUT:**
 
 <table border="1" class="dataframe">
   <thead>
@@ -1102,6 +1102,7 @@ train2
 
 
 
+**OUTPUT:**
 
 <table border="1" class="dataframe">
   <thead>
@@ -1417,7 +1418,7 @@ train2
 
 
 
-
+**OUTPUT:**
 
 <table border="1" class="dataframe">
   <thead>
@@ -1607,7 +1608,7 @@ p25
 ```
 
 
-
+**OUTPUT:**
 
     154.49
 
@@ -1621,7 +1622,7 @@ p75
 ```
 
 
-
+**OUTPUT:**
 
     199.55
 
@@ -1635,7 +1636,7 @@ lower
 ```
 
 
-
+**OUTPUT:**
 
     86.9
 
@@ -1649,7 +1650,7 @@ upper
 ```
 
 
-
+**OUTPUT:**
 
     267.14
 
@@ -1662,9 +1663,6 @@ train2 = train2[cost<upper]
 train2 = train2[cost>lower]
 cost = train2.cost
 ```
-
-    C:\Users\Maz\Anaconda3\lib\site-packages\ipykernel_launcher.py:3: UserWarning: Boolean Series key will be reindexed to match DataFrame index.
-      This is separate from the ipykernel package so we can avoid doing imports until
     
 
 
@@ -1676,7 +1674,7 @@ train2[:5]
 
 
 
-
+**OUTPUT:**
 
 <table border="1" class="dataframe">
   <thead>
@@ -1843,6 +1841,7 @@ train2[:5]
 
 
 
+**OUTPUT:**
 
 <table border="1" class="dataframe">
   <thead>
@@ -2019,7 +2018,7 @@ regr.fit(x_train,y_train)
 
 
 
-
+**OUTPUT:**
     LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None, normalize=False)
 
 
@@ -2040,6 +2039,10 @@ print('Variance score: %.2f' % r2_score(y_test, y_pred))
 print('score:', regr.score(x_train,y_train))
 ```
 
+
+
+**OUTPUT:**
+
     Root mean squared error: 17.50
     Variance score: 0.41
     score: 0.561248522543736
@@ -2056,9 +2059,6 @@ forest.fit(x_train,y_train)
 #predict costs
 y_pred2 = forest.predict(x_test)
 ```
-
-    C:\Users\Maz\Anaconda3\lib\site-packages\sklearn\ensemble\forest.py:245: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
-      "10 in version 0.20 to 100 in 0.22.", FutureWarning)
     
 
 
@@ -2070,6 +2070,10 @@ print("Mean squared error: %.2f"
 print('RMSE: ', np.sqrt(metrics.mean_squared_error(y_test, y_pred2)))
 print('score:', forest.score(x_train,y_train))
 ```
+
+
+
+**OUTPUT:**
 
     Mean squared error: 273.17
     RMSE:  16.52794712455122
@@ -2086,6 +2090,7 @@ pred2_df.to_csv('forest_pred.csv')
 ```
 
 
+
 ```python
 #plot the regression model results
 plt.scatter(y_test,y_pred)
@@ -2093,10 +2098,7 @@ plt.scatter(y_test,y_pred)
 
 
 
-
-    <matplotlib.collections.PathCollection at 0x1df77707668>
-
-
+**OUTPUT:**
 
 |![image](/assets/images/output_27_1.png)|
 |:--:|
@@ -2111,11 +2113,7 @@ plt.scatter(y_test,y_pred2)
 
 
 
-
-    <matplotlib.collections.PathCollection at 0x1df777e6240>
-
-
-
+**OUTPUT:**
 
 |![image](/assets/images/output_28_1.png)|
 |:--:|
