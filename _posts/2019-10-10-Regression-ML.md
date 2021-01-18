@@ -2083,7 +2083,16 @@ y_pred = regr.predict(x_test)
 Then we try the Forest Regression model.
 
 ```python
-# The Root mean squared error
+y_pred2 = forest.predict(x_test)
+```
+
+# Error Calculation
+
+We can measure the efficacy of the model by calculating the root mean square error of our models' predictions.
+
+The error calculation of the regular regression model is as follows.
+
+```python
 print("Root mean squared error: %.2f"
       % np.sqrt(mean_squared_error(y_test, y_pred)))
 # Explained variance score: 1 is perfect prediction
@@ -2099,18 +2108,11 @@ print('score:', regr.score(x_train,y_train))
     Variance score: 0.41
     score: 0.561248522543736
     
-
-
-
-
-#predict costs
-y_pred2 = forest.predict(x_test)
-```
     
 
+The error calculation for the Forest Regression model is as follows.
 
 ```python
-# The mean squared error
 print("Mean squared error: %.2f"
       % metrics.mean_squared_error(y_test, y_pred2))
 # Explained variance score: 1 is perfect prediction
@@ -2127,22 +2129,22 @@ print('score:', forest.score(x_train,y_train))
     score: 0.9215509587276817
     
 
+# Conclusion
+
+We can export our results to csv files.
 
 ```python
-#save cost predictions to csv files
 pred_df = pd.DataFrame(y_pred)
 pred_df.to_csv('reg_pred.csv')
 pred2_df = pd.DataFrame(y_pred2)
 pred2_df.to_csv('forest_pred.csv')
 ```
 
-
+In order to visualize our models we can plot the regression and Forest Regression.
 
 ```python
-#plot the regression model results
 plt.scatter(y_test,y_pred)
 ```
-
 
 
 **OUTPUT:**
