@@ -1142,10 +1142,9 @@ trainAttributes
 </div>
 
 
-
+We will now merge the attributes found in *trainAttributes* and add it to the *train* dataframe. Now the *train* dataframe has a bunch of pipe assemblies with attributes that correspond to a certain price. The machine learning algorithm will use the attributes and corresponding prices to create a model for future pipe assemblies to estimate their prices.
 
 ```python
-#merge those attributes to the train dataframe
 train2 = train.merge(right = trainAttributes, left_index = True, right_index = False, on = "pipe_assembly_id", how = 'outer')
 train2
 ```
@@ -1452,13 +1451,14 @@ train2
 </div>
 
 
-
+The pipe assembly ids have no impact on the actual price of the assemblies so we can now remove it for the sake of training.
 
 ```python
 #drop the unneeded id column
 train2 = train2.drop(['pipe_assembly_id'], axis = 1)
 ```
 
+Certain rows still had NaN values so we will remove them as well.
 
 ```python
 #drop rows that had all NaN values
@@ -1648,10 +1648,10 @@ train2
 </div>
 
 
-
+We can now look for any outliers in the dataset and remove them, as they would skew the training and make the model less accurate.
+First we calculate the 25th percentile in the cost column.
 
 ```python
-#calculate the 25th percentile in cost column
 cost = train2.cost
 p25 = np.percentile(cost,25)
 p25
@@ -1663,10 +1663,9 @@ p25
     154.49
 
 
-
+Then we calculate the 75th percentile.
 
 ```python
-#75th percentile
 p75 = np.percentile(cost,75)
 p75
 ```
@@ -1676,11 +1675,10 @@ p75
 
     199.55
 
-
+Now we will find the lowest cost value that isn't an outlier. So any values lower than this will be considered an outlier.
 
 
 ```python
-# cost values lower than this are outliers
 lower = p25 - 1.5*(p75-p25)
 lower
 ```
@@ -1691,10 +1689,9 @@ lower
     86.9
 
 
-
+And of course we find the highest value too. Any cost higher than this will be considered an outlier as well.
 
 ```python
-# cost above this are outliers
 upper = p75 + 1.5*(p75-p25)
 upper
 ```
@@ -1705,19 +1702,17 @@ upper
     267.14
 
 
-
+We remove the outliers from the dataframe using this condition.
 
 ```python
-#remove outliers from train dataset
 train2 = train2[cost<upper]
 train2 = train2[cost>lower]
-cost = train2.cost
 ```
     
-
+Since we need to have seperate dataframes for the training data and the label data, we will save and remove the *cost* column. *train2* will be our training data and *cost* will be our label data.
 
 ```python
-#remove cost column as that is the target label for each row
+cost = train2.cost
 train2 = train2.drop(['cost'], axis = 1)
 train2[:5]
 ```
@@ -1880,7 +1875,7 @@ train2[:5]
 </div>
 
 
-
+Certain attributes have data entries as "Y" and "N". We need them to be numbers so we replace them with zeroes and ones instead.
 
 ```python
 #replace strings for Y and N as numbers 1 and 0
@@ -2047,39 +2042,45 @@ train2[:5]
 </div>
 
 
+# Create the validation dataset.
 
+Now that we have completed the pre-processing we can split the data into the training and testing datasets. The algorithm needs to test the model against a similarly structured dataset to verify its estimated costs during training. The test dataset can be structured exactly the same if we use the following function to split the training dataset 60/40. The *x_train* contains the attributes it will train on. The *y_train* containst the associated costs. *x_test* and *y_test* have the attributes and costs for validation.
 
 ```python
-#split the dataset into a dataset to train the model and a dataset to test the model.
 x_train, x_test, y_train, y_test = train_test_split(train2, cost,train_size = 0.6, random_state = 42)
 ```
 
+# Model building
+
+We can start to create a regression model using the sklearn library.
 
 ```python
-#create a regression model from sklearn
 regr = sklearn.linear_model.LinearRegression()
 ```
 
+Using the followng function, we can fit the training data to the regression model.
 
 ```python
-#fit the training attributes and costs to the model
 regr.fit(x_train,y_train)
 ```
 
-
-
-**OUTPUT:**
-
-    LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None, normalize=False)
-
-
-
+We will also fit our data onto a more complex model called a Forest Regression model and see how that compares.
 
 ```python
-#predict costs using the testing dataset
+forest = RandomForestRegressor()
+forest.fit(x_train,y_train)
+```
+
+# Predict costs using the models
+
+Now we can use the two regession models to estimate prices based on the testing data.
+First we try the regular regresion model.
+
+```python
 y_pred = regr.predict(x_test)
 ```
 
+Then we try the Forest Regression model.
 
 ```python
 # The Root mean squared error
@@ -2100,12 +2101,7 @@ print('score:', regr.score(x_train,y_train))
     
 
 
-```python
-#use another more complex regression model
-forest = RandomForestRegressor()
 
-#fit the data
-forest.fit(x_train,y_train)
 
 #predict costs
 y_pred2 = forest.predict(x_test)
