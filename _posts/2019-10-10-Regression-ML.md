@@ -13,6 +13,53 @@ classes: wide
 
 ---
 
+# Overview
+
+A manufacturer produces pipes with different specifications.  It wants to use a prediction model to estimate the finished cost of new pipes with pre-determined specifications based on the historic data of pipes which already are manufactured.
+
+
+<br />
+
+|![image](/assets/images/pipes.png)|
+|:--:|
+|*Example of a schedule on my phone's calendar*|
+
+<br />
+
+We have access to multiple pipe data sets and are asked to predict the finished cost of a given pipe.
+The data sets are:
+•	Train dataset: including the pipe assembly id and finished price of the pipes used for training the models.
+•	Test dataset: including only the pipe assembly id for the pipes which finished price should be predicted.
+•	Pipes main spec: including the material of the pipe and technical specifications of the pipes such as diameter, length, etc.
+•	Pipes other spec: including the code of other specification of each pipe.
+•	Pipes bill of material: including the number and name of the components in each pipe.
+•	Compgeneralnumbers: including the number and name of the components types in each pipe.
+•	Compweights: including the weight of components types in each pipe.
+•	Comptypespec: including the specifications of the components in each pipe.
+
+The following is required:
+
+1.	Data pre-processing (Merging data sets, missing data, outliers,etc).
+2.	Creating a validation data set.
+3.	Model building:
+a.	Linear Regression
+b.	Forest Regression
+4.	Measuring the Square Logarithmic Error (RMSE) of validation data using each of your prediction models.
+
+<br />
+
+|![image](/assets/images/rmse.png)|
+|:--:|
+|*Where n is the number of records in the test set, p is your predicted finished cost and a is actual finished cost*|
+
+<br />
+  
+
+
+5.	Select the best model.
+6.	Provide prediction of test pipes using the best model.
+
+
 ```python
 import numpy as np
 import pandas as pd
