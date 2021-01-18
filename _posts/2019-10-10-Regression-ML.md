@@ -22,20 +22,29 @@ A manufacturer produces pipes with different specifications.  It wants to use a 
 
 |![image](/assets/images/pipes.png)|
 |:--:|
-|*Example of a schedule on my phone's calendar*|
+|*There are many attributes that may describe a pipe assembly*|
 
 <br />
 
 We have access to multiple pipe data sets and are asked to predict the finished cost of a given pipe.
 The data sets are:
+
 •	Train dataset: including the pipe assembly id and finished price of the pipes used for training the models.
+
 •	Test dataset: including only the pipe assembly id for the pipes which finished price should be predicted.
+
 •	Pipes main spec: including the material of the pipe and technical specifications of the pipes such as diameter, length, etc.
+
 •	Pipes other spec: including the code of other specification of each pipe.
+
 •	Pipes bill of material: including the number and name of the components in each pipe.
+
 •	Compgeneralnumbers: including the number and name of the components types in each pipe.
+
 •	Compweights: including the weight of components types in each pipe.
+
 •	Comptypespec: including the specifications of the components in each pipe.
+
 
 The following is required:
 
