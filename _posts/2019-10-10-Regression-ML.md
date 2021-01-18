@@ -108,7 +108,7 @@ otherSpec = pd.read_csv('other spec.csv') # majority of data is 0, little impact
 compGenNum = pd.read_csv('compgeneralnumbers.csv') # pipe id and component number (attributes)
 compTypeSpec = pd.read_csv('comptypespec.csv')# missing data so may be optional
 ```
-We will first look at attributes held in the pipeMainSpec table.
+We will first look at attributes held in the *pipeMainSpec* dataframe. A dataframe is an object from the pandas library that is essentially a two-dimensional table.
 We should check the table for NaN values as they will interfere with training, since NaN values are not a number and regression calculations can only work with numbers.
 
 ```python
@@ -135,7 +135,7 @@ pipeMainSpec.isna().sum()
     dtype: int64
 
 
-There are many NaN values in the categorical attribute material_Id, so remove that column. Then print out the first five rows of the table.
+There are many NaN values in the categorical attribute *material_Id*, so remove that column. Then print out the first five rows of the table.
 
 ```python
 pipeMainSpec = pipeMainSpec.dropna(axis = 1)
@@ -249,7 +249,7 @@ pipeMainSpec[:5]
 </div>
 
 
-Next we will look at the compGenNum. It also holds some NaN values, but it is a numerical attribute so we can replace them with zeroes and keep the column. We can also remove the Grand Total column as it is a redundant attribute. 
+Next we will look at the *compGenNum* dataframe. It also holds some NaN values, but it is a numerical attribute so we can replace them with zeroes and keep the column. We can also remove the Grand Total column as it is a redundant attribute. 
 
 ```python
 #replace NaN values with zeroes
@@ -451,7 +451,7 @@ compGenNum
 <p>19149 rows × 12 columns</p>
 </div>
 
-We cleaned up two files already so we can combine them into one table called attributes.
+We cleaned up two files already so we can combine them into one dataframe called *attributes*.
 
 ```python
 #merge the two major attribute dataframes
@@ -760,7 +760,7 @@ attributes
 <p>19149 rows × 24 columns</p>
 </div>
 
-Here we check where the newly made attributes dataframe shares the same pipe assembly ids from the train file we were given.
+Here we check where the newly made *attributes* dataframe shares the same pipe assembly ids from the *train* file we were given. A new dataframe called *istrainAttributes* will contain a list of all the pipe assembly ids and whether they are found in both *train* and *attributes*.
 
 ```python
 istrainAttributes = attributes['pipe_assembly_id'].isin(train.pipe_assembly_id)
@@ -834,13 +834,12 @@ istrainAttributes
     Name: pipe_assembly_id, Length: 19149, dtype: bool
 
 
-We will only choose the pipe assembly ids in the attribute dataframe that are also found in the train dataframe, since the train dataframe has the target prices that the machine learning algorithm will actually train on. Having these target prices for the algorithm to train on makes this a supervised machine learning algorithm as opposed to an unsupervised machine learning algorithm. You can learn more about these two general types of problems (here)[https://towardsdatascience.com/supervised-vs-unsupervised-learning-14f68e32ea8d]
+We will only choose the pipe assembly ids in the *attribute* dataframe that are also found in the *train* dataframe, since the *train* dataframe has the target prices that the machine learning algorithm will actually train on. We will createa dataframe, *trainAttributes*, that will contain the attributes found in both *train* and *pipe assembly id*. Having these target prices for the algorithm to train on makes this a supervised machine learning algorithm as opposed to an unsupervised machine learning algorithm. You can learn more about these two general types of problems [here](https://towardsdatascience.com/supervised-vs-unsupervised-learning-14f68e32ea8d)
 
 ```python
 trainAttributes = attributes[istrainAttributes == True]
 trainAttributes
 ```
-
 
 
 **OUTPUT:**
