@@ -69,6 +69,12 @@ b.	Forest Regression
 6.	Provide prediction of test pipes using the best model.
 
 
+# Data Pre-processing
+
+Even though it is the first step to creating a machine learning algorithm, it is the most vital step in creating a useful and accurate predictive model. We were handed various csv files each with varying amounts of information. Some of it is redundant, some of it is missing, and it is all scattered across multiple tables. Our goal is to create a single, clean table filled with only the most pertinent data.
+
+In order to do this, though, we will need to import the necessary libraries.
+
 ```python
 import numpy as np
 import pandas as pd
@@ -89,6 +95,7 @@ from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.ensemble import RandomForestRegressor
 ```
 
+Next we will import the data files.
 
 ```python
 #import csv files
@@ -101,14 +108,13 @@ otherSpec = pd.read_csv('other spec.csv') # majority of data is 0, little impact
 compGenNum = pd.read_csv('compgeneralnumbers.csv') # pipe id and component number (attributes)
 compTypeSpec = pd.read_csv('comptypespec.csv')# missing data so may be optional
 ```
-
+We will first look at attributes held in the pipeMainSpec table.
+We should check the table for NaN values as they will interfere with training, since NaN values are not a number and regression calculations can only work with numbers.
 
 ```python
 #check for NaN values
 pipeMainSpec.isna().sum()
 ```
-
-
 
 **OUTPUT:**
 
@@ -129,15 +135,12 @@ pipeMainSpec.isna().sum()
     dtype: int64
 
 
-
+There are many NaN values in the categorical attribute material_Id, so remove that column. Then print out the first five rows of the table.
 
 ```python
-#theres many NaN values in the categorical attritbute material_Id, so remove that column
 pipeMainSpec = pipeMainSpec.dropna(axis = 1)
 pipeMainSpec[:5]
 ```
-
-
 
 **OUTPUT:**
 
@@ -246,17 +249,12 @@ pipeMainSpec[:5]
 </div>
 
 
-
-
-```python
-#grand total is a redundant attribute, remove it
-compGenNum = compGenNum.drop('Grand Total', axis = 1)
-```
-
+Next we will look at the compGenNum. It also holds some NaN values, but it is a numerical attribute so we can replace them with zeroes and keep the column. We can also remove the Grand Total column as it is a redundant attribute. 
 
 ```python
 #replace NaN values with zeroes
 compGenNum = compGenNum.fillna(0)
+compGenNum = compGenNum.drop('Grand Total', axis = 1)
 compGenNum
 ```
 
@@ -453,7 +451,7 @@ compGenNum
 <p>19149 rows × 12 columns</p>
 </div>
 
-
+We cleaned up two files already so we can combine them into one table called attributes.
 
 ```python
 #merge the two major attribute dataframes
@@ -762,11 +760,9 @@ attributes
 <p>19149 rows × 24 columns</p>
 </div>
 
-
-
+Here we check where the newly made attributes dataframe shares the same pipe assembly ids from the train file we were given.
 
 ```python
-#check where the attributes dataframe shares the same pipe assembly ids from the train dataframe
 istrainAttributes = attributes['pipe_assembly_id'].isin(train.pipe_assembly_id)
 istrainAttributes
 ```
@@ -838,10 +834,9 @@ istrainAttributes
     Name: pipe_assembly_id, Length: 19149, dtype: bool
 
 
-
+We will only choose the pipe assembly ids in the attribute dataframe that are also found in the train dataframe, since the train dataframe has the target prices that the machine learning algorithm will actually train on. Having these target prices for the algorithm to train on makes this a supervised machine learning algorithm as opposed to an unsupervised machine learning algorithm. You can learn more about these two general types of problems (here)[https://towardsdatascience.com/supervised-vs-unsupervised-learning-14f68e32ea8d]
 
 ```python
-#choose only the pipe assembly ids in the attribute dataframe that are also found in the train dataframe
 trainAttributes = attributes[istrainAttributes == True]
 trainAttributes
 ```
