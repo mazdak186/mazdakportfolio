@@ -2131,6 +2131,8 @@ print('score:', forest.score(x_train,y_train))
 
 # Conclusion
 
+The RMSE of the Forest Regression model is lower than the linear regression model. And the score, which is actually the R-squared value of the model, is higher for the Forest Regression model. Therefore we can conclude that using the Forest Regression model will be a more accurate way to estimate costs for future pipe assemblies.
+
 We can export our results to csv files.
 
 ```python
