@@ -10,7 +10,7 @@ header:
   overlay_image: /assets/images/skyline.jpg
   actions:
     - label: "Go To Projects"
-      url: /posts/
+      url: /portfolio/
   caption: 
 excerpt: "Click here for a list of all my projects"
 feature_row1:
