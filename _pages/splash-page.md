@@ -12,7 +12,7 @@ header:
     - label: "Go To Projects"
       url: /portfolio/
   caption: 
-excerpt: "Click here for a list of all my projects"
+excerpt: "Take a look at my projects below"
 feature_row1:
   - image_path: assets/images/inference.jpg
     title: "Fermi National Accelerator Lab’s Hazardous Maintenance Solution Using Object Detection in 3D space"
