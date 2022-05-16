@@ -4,6 +4,7 @@ layout: single
 permalink: /
 date: 2022-05-16
 author_profile: true
+classes: wide
 header:
   overlay_color: "#000"
   overlay_filter: "0.5"
