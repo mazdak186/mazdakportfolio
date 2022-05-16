@@ -29,7 +29,7 @@ feature_row2:
     btn_label: "Read More"
     btn_class: "btn--primary"
 feature_row3:
-  - image_path: /assets/images/
+  - image_path: /assets/images/mnist_pic.png
     title: "Machine Learning AI for Recognizing Handwritten Digits from Pictures"
     excerpt: 'Created a model from scratch using the popular MNIST database and the machine learning API: Tensorflow'
     url: /school%20project/MNIST/
