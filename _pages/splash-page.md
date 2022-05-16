@@ -11,56 +11,42 @@ header:
   actions:
     - label: "Go To Projects"
       url: /posts/
-  caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
+  caption: 
 excerpt: "Click here for a list of all my projects"
-feature_row:
-  - image_path: assets/images/unsplash-gallery-image-1-th.jpg
-    alt: "placeholder image 1"
+feature_row1:
+  - image_path: assets/images/inference.jpg
     title: "Pipe Assembly Cost Prediction Using Random Forest Regressor Model"
     excerpt: "Pre-processed multiple dataframes into a single, clean table to train a machine learning algorithm"
-  - image_path: /assets/images/unsplash-gallery-image-2-th.jpg
-    image_caption: "Image courtesy of [Unsplash](https://unsplash.com/)"
-    alt: "placeholder image 2"
-    title: "Machine Learning AI for Recognizing Handwritten Digits from Pictures"
-    excerpt: "Created a model from scratch using the popular MNIST database and the machine learning API: Tensorflow"
     url: "#test-link"
     btn_label: "Read More"
     btn_class: "btn--primary"
-  - image_path: /assets/images/unsplash-gallery-image-3-th.jpg
-    title: "Automatic Work Scheduling Using Google APIs"
-    excerpt: "Independently developed a Python script that reads my inbox to create a daily schedule in my calendar"
 feature_row2:
-  - image_path: /assets/images/unsplash-gallery-image-2-th.jpg
-    alt: "placeholder image 2"
-    title: "Placeholder Image Left Aligned"
-    excerpt: 'This is some sample content that goes here with **Markdown** formatting. Left aligned with `type="left"`'
+  - image_path: /assets/images/
+    title: "Pipe Assembly Cost Prediction Using Random Forest Regressor Model"
+    excerpt: 'Pre-processed multiple dataframes into a single, clean table to train a machine learning algorithm'
     url: "#test-link"
     btn_label: "Read More"
     btn_class: "btn--primary"
 feature_row3:
-  - image_path: /assets/images/unsplash-gallery-image-2-th.jpg
-    alt: "placeholder image 2"
-    title: "Placeholder Image Right Aligned"
-    excerpt: 'This is some sample content that goes here with **Markdown** formatting. Right aligned with `type="right"`'
+  - image_path: /assets/images/
+    title: "Machine Learning AI for Recognizing Handwritten Digits from Pictures"
+    excerpt: 'Created a model from scratch using the popular MNIST database and the machine learning API: Tensorflow'
     url: "#test-link"
     btn_label: "Read More"
     btn_class: "btn--primary"
 feature_row4:
-  - image_path: /assets/images/unsplash-gallery-image-2-th.jpg
-    alt: "placeholder image 2"
-    title: "Placeholder Image Center Aligned"
-    excerpt: 'This is some sample content that goes here with **Markdown** formatting. Centered with `type="center"`'
+  - image_path: /assets/images/
+    title: "Automatic Work Scheduling Using Google APIs"
+    excerpt: 'Independently developed a Python script that reads my inbox to create a daily schedule in my calendar'
     url: "#test-link"
     btn_label: "Read More"
     btn_class: "btn--primary"
 ---
 
-{% include feature_row id="intro" type="center" %}
+{% include feature_row id="feature_row1" type="right"%}
 
-{% include feature_row %}
-
-{% include feature_row id="feature_row2" type="left" %}
+{% include feature_row id="feature_row2" type="right" %}
 
 {% include feature_row id="feature_row3" type="right" %}
 
-{% include feature_row id="feature_row4" type="center" %}
+{% include feature_row id="feature_row4" type="right" %}
