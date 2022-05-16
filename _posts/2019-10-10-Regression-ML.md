@@ -10,7 +10,7 @@ toc: true
 toc_label:
 toc_icon: 'bars'
 classes: wide
-
+excerpt: "Pre-processed multiple dataframes into a single, clean table to train a machine learning algorithm"
 ---
 
 # Overview
