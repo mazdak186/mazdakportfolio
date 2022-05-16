@@ -1,5 +1,5 @@
 ---
-title: "Auto-Scheduler"
+title: "Automatic Work Scheduling Using Google APIs"
 date: 2020-04-15T15:34:30-04:00
 categories:
   - Personal Project
