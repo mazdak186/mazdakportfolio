@@ -21,7 +21,7 @@ feature_row1:
     btn_label: "Read More"
     btn_class: "btn--primary"
 feature_row2:
-  - image_path: /assets/images/pipes.jpg
+  - image_path: /assets/images/pipes.png
     title: "Pipe Assembly Cost Prediction Using Random Forest Regressor Model"
     excerpt: 'Pre-processed multiple dataframes into a single, clean table to train a machine learning algorithm'
     url: "#test-link"
