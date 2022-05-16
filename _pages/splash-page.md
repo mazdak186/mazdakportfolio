@@ -1,6 +1,6 @@
 ---
 title: "Fermi National Accelerator Lab’s Hazardous Maintenance Solution Using Object Detection in 3D space"
-layout: splash
+layout: single
 permalink: /
 date: 2016-03-23T11:48:41-04:00
 author_profile: true
