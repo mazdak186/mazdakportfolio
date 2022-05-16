@@ -1,5 +1,5 @@
 ---
-title: "Regression Machine Learning Project"
+title: "Pipe Assembly Cost Prediction Using Random Forest Regressor Model"
 date: 2020-04-15T15:34:30-04:00
 categories:
   - School Project
