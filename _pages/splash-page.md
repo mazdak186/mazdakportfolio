@@ -22,7 +22,7 @@ feature_row1:
     btn_label: "Read More"
     btn_class: "btn--primary"
 feature_row2:
-  - image_path: /assets/images/pipes.png
+  - image_path: /assets/images/forest_pic.png
     title: "Pipe Assembly Cost Prediction Using Random Forest Regressor Model"
     excerpt: 'Pre-processed multiple dataframes into a single, clean table to train a machine learning algorithm'
     url: /school%20project/Regression-ML/
@@ -36,7 +36,7 @@ feature_row3:
     btn_label: "Read More"
     btn_class: "btn--primary"
 feature_row4:
-  - image_path: /assets/images/
+  - image_path: /assets/images/googleapi_pic.jpg
     title: "Automatic Work Scheduling Using Google APIs"
     excerpt: 'Independently developed a Python script that reads my inbox to create a daily schedule in my calendar'
     url: /personal%20project/Auto-Google-Scheduler/
