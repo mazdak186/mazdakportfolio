@@ -12,7 +12,7 @@ toc_icon: 'bars'
 classes: wide
 header:
   overlay_color: "#000"
-  overlay_filter: "0.5"
+  overlay_filter: "0.6"
   overlay_image: /assets/images/googleapi_pic.jpg
   caption: 
 excerpt: "Independently developed a Python script that reads my inbox to create a daily schedule in my calendar"
