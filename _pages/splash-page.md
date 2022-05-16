@@ -15,8 +15,8 @@ header:
 excerpt: "Click here for a list of all my projects"
 feature_row1:
   - image_path: assets/images/inference.jpg
-    title: "Pipe Assembly Cost Prediction Using Random Forest Regressor Model"
-    excerpt: "Pre-processed multiple dataframes into a single, clean table to train a machine learning algorithm"
+    title: "Fermi National Accelerator Lab’s Hazardous Maintenance Solution Using Object Detection in 3D space"
+    excerpt: "Developed a deep learning AI to detect nuts and bolts for maintenance in radioactive environments at Fermilab"
     url: "#test-link"
     btn_label: "Read More"
     btn_class: "btn--primary"
