@@ -10,6 +10,11 @@ toc: true
 toc_label:
 toc_icon: 'bars'
 classes: wide
+header:
+  overlay_color: "#000"
+  overlay_filter: "0.5"
+  overlay_image: /assets/images/forest_pic.png
+  caption: 
 excerpt: "Pre-processed multiple dataframes into a single, clean table to train a machine learning algorithm"
 ---
 
