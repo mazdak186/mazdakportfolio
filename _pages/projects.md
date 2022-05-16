@@ -1,6 +1,6 @@
 ---
 title: Portfolio
-layout: posts
+layout: single
 permalink: /portfolio/
 collection: portfolio
 entries_layout: grid
