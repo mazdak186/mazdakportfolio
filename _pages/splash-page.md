@@ -10,7 +10,7 @@ header:
   overlay_image: /assets/images/inference.jpg
   actions:
     - label: "Go To Projects"
-      url: "https://github.com/mmistakes/minimal-mistakes/"
+      url: /posts/
   caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
 excerpt: "Click here for a list of all my projects"
 feature_row:
