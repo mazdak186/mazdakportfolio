@@ -10,7 +10,7 @@ toc: false
 toc_label:
 toc_icon: 'bars'
 classes: wide
-
+excerpt: "Independently developed a Python script that reads my inbox to create a daily schedule in my calendar"
 ---
 
 # Overview
