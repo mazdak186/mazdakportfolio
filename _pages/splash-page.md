@@ -1,7 +1,7 @@
 ---
 title: "Splash Page"
 layout: splash
-permalink: 
+permalink: /splash-page/
 date: 2016-03-23T11:48:41-04:00
 header:
   overlay_color: "#000"
@@ -13,7 +13,7 @@ header:
   caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
 excerpt: "Fermilab ML Project"
 intro: 
-  - excerpt: Other Projects:
+  - excerpt: Other Projects
 feature_row:
   - image_path: assets/images/unsplash-gallery-image-1-th.jpg
     alt: "placeholder image 1"
