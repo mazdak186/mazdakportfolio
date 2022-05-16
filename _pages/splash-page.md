@@ -1,5 +1,5 @@
 ---
-title: "Fermi National Accelerator Lab’s Hazardous Maintenance Solution Using Object Detection in 3D space"
+title: "Mazdak Khoshnood"
 layout: single
 permalink: /
 date: 2016-03-23T11:48:41-04:00
@@ -9,12 +9,10 @@ header:
   overlay_filter: "0.5"
   overlay_image: /assets/images/inference.jpg
   actions:
-    - label: "Go To"
+    - label: "Go To Projects"
       url: "https://github.com/mmistakes/minimal-mistakes/"
   caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
-excerpt: "Developed a deep learning AI to detect nuts and bolts for maintenance in radioactive environments at Fermilab"
-intro: 
-  - excerpt: "Other Projects:"
+excerpt: "Click here for a list of all my projects"
 feature_row:
   - image_path: assets/images/unsplash-gallery-image-1-th.jpg
     alt: "placeholder image 1"
